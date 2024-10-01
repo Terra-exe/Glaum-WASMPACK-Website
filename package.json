@@ -7,7 +7,7 @@
     "test": "tests"
   },
   "scripts": {
-    "build": "Rust Verson: && rustc --version && Cargo Verson: && cargo --version && echo BUILD SUCCESS3"
+    "build": "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y && export PATH='$HOME/.cargo/bin:$PATH' && Rust Verson: && rustc --version && Cargo Verson: && cargo --version && echo BUILD SUCCESS4"
   },
   "keywords": [],
   "author": "",
