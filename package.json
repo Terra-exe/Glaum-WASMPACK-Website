@@ -7,7 +7,7 @@
     "test": "tests"
   },
   "scripts": {
-    "build": "echo BUILD SUCCESS2"
+    "build": "wasm-pack build && echo BUILD SUCCESS2"
   },
   "keywords": [],
   "author": "",
