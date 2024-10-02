@@ -1,0 +1,35 @@
+/* Style for the button */
+.praise-btn {
+    font-size: 18px;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .praise-btn:hover {
+    background-color: #ff4081; /* Pink when hovered */
+  }
+  
+  /* Style for the greeting text */
+  .greeting-text {
+    font-size: 24px;
+    color: #673ab7; /* Deep purple */
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  /* Active class for the greeting text */
+  .greeting-text.show {
+    opacity: 1;
+    transform: scale(1);
+    color: #000000; /* Animated color */
+    text-shadow: 0 0 10px rgba(0, 255, 106, 0.7);
+    transition: opacity 1s ease, transform 0.5s ease, color 1s ease;
+  }
+  
