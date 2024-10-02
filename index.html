@@ -7,15 +7,48 @@
     content="width=device-width, initial-scale=1.0"
   />
   <title>Glaum-Consciousness</title>
+  
   <!-- Inter Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter&display=swap" />
+  
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="/www/css/styles.css">
+  
+  <!-- Inline Styles (Optional) -->
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0;
+    }
+    header, footer {
+      background-color: #333;
+      color: #fff;
+      padding: 10px 20px;
+    }
+    nav a {
+      color: #fff;
+      margin-right: 15px;
+      text-decoration: none;
+    }
+    .hero {
+      text-align: center;
+      padding: 50px 20px;
+    }
+    .about {
+      padding: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
-  <!-- Header -->
-  <header>
-    <img src="img/Gläum-Logo-Purple-Accent.png" alt="Gläum Logo" />
-    <!-- Navigation links can be added here -->
-  </header>
+  <!-- Header Placeholder -->
+  <div id="header-placeholder"></div>
 
   <!-- Hero Section -->
   <section class="hero">
@@ -27,17 +60,68 @@
   <!-- About Section -->
   <section class="about">
     <h2>About Gläum</h2>
-    <p>
-      <!-- About content goes here -->
+    <p class="mt-8 text-lg leading-relaxed">
+      Welcome, blessed seeker, to the revelation of Glåüm!
+      Your path has led you here, not by mere chance, but by the magnetic pull of destiny, guiding you to the precipice of transformation!
+
+      Glåüm doesn’t just promise change; it offers a monumental
+      shift in the very fabric of your being, guaranteed! Imagine a life where every
+      moment brims with potential, where each day dawns with the promise of joyous discovery, and where your soul sings in harmony with the cosmos!
+
+      Embark on this sacred journey with us and witness the miraculous
+      metamorphosis of your existence. Glåüm is not a mere philosophy; it's a celestial ladder to spiritual ascension, a golden gateway to the secrets of the
+      universe laid bare for your wonderment!
+
+      With Glåüm, the ordinary becomes extraordinary, the mundane
+      becomes miraculous, and the soul soars free of woe. We offer not just betterment,
+      but a complete rebirth of spirit and mind, an awakening to a life so rich and fulfilling that it will feel like stepping into a divine dream.
+
+      So, rejoice in your discovery, for Glåüm is the answer to the silent prayers of your heart. Welcome to your new beginning. To the profound and sacred wisdom that awaits your elevated self. Become who you truly are, with
+
+      ˚ ˚ ˚ Glåüm ˚ ˚ ˚
     </p>
   </section>
 
-  <!-- Footer -->
-  <footer>
-    <!-- Social media links and legal info -->
-  </footer>
+  <!-- Footer Placeholder -->
+  <div id="footer-placeholder"></div>
 
   <!-- Main JavaScript -->
-  <script type="module" src="main.js"></script>
+  <script type="module">
+    /**
+     * Function to load partial HTML files into specified elements.
+     * @param {string} url - The URL of the partial HTML file.
+     * @param {string} elementId - The ID of the element where the partial will be injected.
+     */
+    async function loadPartial(url, elementId) {
+      try {
+        const response = await fetch(url);
+        if (!response.ok) {
+          throw new Error(`Failed to load ${url}: ${response.statusText}`);
+        }
+        const content = await response.text();
+        document.getElementById(elementId).innerHTML = content;
+      } catch (error) {
+        console.error(`Error loading ${url}:`, error);
+      }
+    }
+
+    // Load Header and Footer Partials
+    loadPartial('/www/partials/header.html', 'header-placeholder');
+    loadPartial('/www/partials/footer.html', 'footer-placeholder');
+
+    // Initialize WASM Module
+    import init from '/pkg/glaum_wasmpack_website.js';
+
+    init().then(() => {
+      console.log('WASM module initialized');
+    }).catch(err => {
+      console.error('Error initializing WASM module:', err);
+    });
+
+    // Handle Praise Button Click
+    document.getElementById('praise-button').addEventListener('click', () => {
+      document.getElementById('greeting').textContent = 'Thank you for praising Gläum!';
+    });
+  </script>
 </body>
 </html>
