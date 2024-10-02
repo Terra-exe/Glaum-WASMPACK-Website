@@ -7,7 +7,8 @@ extern "C" {
     fn alert(s: &str);
 }
 
+// Function to be called from JavaScript
 #[wasm_bindgen]
-pub fn greet() {
-    alert("Hello, glaum-wasmpack-website!");
+pub fn greet(name: &str) -> String {
+    format!("Hello, {}!", name)
 }

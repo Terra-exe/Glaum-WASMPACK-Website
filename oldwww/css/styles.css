@@ -1,0 +1,47 @@
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+.tm-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.tm-contact-main {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.tm-content-title {
+    margin-bottom: 20px;
+    font-size: 2em;
+    color: #333333;
+}
+
+.tm-contact form .form-control {
+    border-radius: 4px;
+    border: 1px solid #cccccc;
+}
+
+.btn-primary {
+    background-color: #333333;
+    border-color: #333333;
+}
+
+.btn-primary:hover {
+    background-color: #555555;
+    border-color: #555555;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .tm-contact-main {
+        padding: 20px;
+    }
+}

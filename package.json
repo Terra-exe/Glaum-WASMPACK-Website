@@ -7,9 +7,11 @@
     "test": "tests"
   },
   "scripts": {
-    "build": "ls -la && echo !=!=!=! &&  ls -la .. && export RUSTUP_HOME=\"/workspace/.rustup\" && export CARGO_HOME=\"/workspace/.cargo\" && export TMPDIR=\"/workspace/.rustup/tmp\" && echo \"RUSTUP_HOME: $RUSTUP_HOME\" && echo \"CARGO_HOME: $CARGO_HOME\" && echo \"TMPDIR: $TMPDIR\" && mkdir -p \"$TMPDIR\" && curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y && export PATH=\"$CARGO_HOME/bin:$PATH\" && echo \"PATH: $PATH\" && echo \"Rust Version:\" && rustc --version && echo \"Cargo Version:\" && cargo --version && npm install && wasm-pack build && echo \"BUILD SUCCESS12\"",
+    "build": "ls -la && echo !=!=!=! &&  ls -la .. && export RUSTUP_HOME=\"/workspace/.rustup\" && export CARGO_HOME=\"/workspace/.cargo\" && export TMPDIR=\"/workspace/.rustup/tmp\" && echo \"RUSTUP_HOME: $RUSTUP_HOME\" && echo \"CARGO_HOME: $CARGO_HOME\" && echo \"TMPDIR: $TMPDIR\" && mkdir -p \"$TMPDIR\" && curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y && export PATH=\"$CARGO_HOME/bin:$PATH\" && echo \"PATH: $PATH\" && echo \"Rust Version:\" && rustc --version && echo \"Cargo Version:\" && cargo --version && npm install && wasm-pack build --release --target web  && echo \"BUILD SUCCESS Oct1\"",
+    "testbuild": "echo !=!=!=! && rustc --version && echo \"Cargo Version:\" && cargo --version && wasm-pack build --release --target web && echo \"BUILD SUCCESS12\"",
     "start": "echo STARTING && serve pkg && echo START COMPLETE",
     "test": "wasm-pack test --headless --chrome"
+    
   }, 
   "devDependencies": {
     "wasm-pack": "^0.13.0",

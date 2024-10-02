@@ -10,7 +10,8 @@
   
   <!-- Inter Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter&display=swap" />
-  
+  <link rel="icon" href="/www/assets/img/favicon.ico" type="image/x-icon">
+
   <!-- Main CSS -->
   <link rel="stylesheet" href="/www/css/styles.css">
   
@@ -106,17 +107,30 @@
     }
 
     // Load Header and Footer Partials
-    loadPartial('/www/partials/header.html', 'header-placeholder');
-    loadPartial('/www/partials/footer.html', 'footer-placeholder');
+    loadPartial('./www/partials/header.html', 'header-placeholder');
+    loadPartial('./www/partials/footer.html', 'footer-placeholder');
 
-    // Initialize WASM Module
-    import init from '/pkg/glaum_wasmpack_website.js';
+    // Fetch and instantiate the WebAssembly module manually
+    async function initWasm() {
+      try {
+        // Fetch and compile the WASM file
+        const wasmModule = await WebAssembly.instantiateStreaming(
+          fetch('/pkg/glaum_wasmpack_website_bg.wasm'),
+          {} // Any imports or functions needed for the module can be passed here
+        );
+        
+        console.log('WASM module initialized');
+        // Call a function exported from the WASM module
+        if (wasmModule.instance.exports.someFunction) {
+          wasmModule.instance.exports.someFunction(); // Ensure this function exists in the WASM
+        }
+      } catch (err) {
+        console.error('Error initializing WASM module:', err);
+      }
+    }
 
-    init().then(() => {
-      console.log('WASM module initialized');
-    }).catch(err => {
-      console.error('Error initializing WASM module:', err);
-    });
+    // Initialize the WebAssembly module
+    initWasm();
 
     // Handle Praise Button Click
     document.getElementById('praise-button').addEventListener('click', () => {
