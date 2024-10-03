@@ -35,11 +35,6 @@
         <img src="www/assets/img/Glaum-Logo-Purple-Accent.png" alt="Glåüm Logo" class="mx-auto" style="max-width: 30%; height: auto;">
       </h1>
   
-      <!-- YouTube Embed -->
-      <div class="mx-auto my-8" style="max-width: 1055px;">
-        <iframe width="1055" height="821" src="https://www.youtube.com/embed/3mfVkR5ftIk" title="Glåüm Now: Guided Meditation" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-      </div>
-  
       <div>
         <h1 class="mt-2 text-center w-10/12 lg:w-auto text-lg sm:text-2xl mx-auto main-headline opacity-70 font-normal leading-snug">
           <!-- Hero Section -->
@@ -62,7 +57,11 @@
       </div>      
     </div>
   </div>
-  
+  <!-- YouTube Embed -->
+  <div class="mx-auto my-8" style="max-width: 1055px;">
+    <iframe width="1055" height="821" src="https://www.youtube.com/embed/3mfVkR5ftIk" title="Glåüm Now: Guided Meditation" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  </div>
+
 <!--------------------------------------- ABOUT --------------------------------------->
     <div id="about" class="pt-48 sm:pt-32 pb-20 xs:pb-32 mx-auto bg-white bg-opacity-10">
       <div class="max-w-3xl mx-4 sm:mx-auto text-center">
@@ -130,7 +129,7 @@
       try {
         // Fetch and compile the WASM file
         const wasmModule = await WebAssembly.instantiateStreaming(
-          fetch('/glaum_wasmpack_website_bg.wasm'),
+          fetch('./glaum_wasmpack_website_bg.wasm'),
           {} // Any imports or functions needed for the module can be passed here
         );
         
