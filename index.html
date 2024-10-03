@@ -130,7 +130,7 @@
       try {
         // Fetch and compile the WASM file
         const wasmModule = await WebAssembly.instantiateStreaming(
-          fetch('./glaum_wasmpack_website_bg.wasm'),
+          fetch('/glaum_wasmpack_website_bg.wasm'),
           {} // Any imports or functions needed for the module can be passed here
         );
         
